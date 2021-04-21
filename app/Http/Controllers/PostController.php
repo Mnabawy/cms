@@ -54,7 +54,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return view('posts.show', compact('post'));       
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -92,7 +92,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect('posts');
     }
 
     public function showcustomView()

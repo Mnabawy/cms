@@ -1,11 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
-
-
-
-
-<p>show page</p>
-
-
-@endsection
+<a href="{{route('posts.edit',$post->id)}}">
+    {{$post->title}}
+</a>

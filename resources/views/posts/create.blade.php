@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 
     <form method="POST" action="/posts">
         @csrf
@@ -9,6 +6,3 @@
         <input type="submit" name="submit">
 
     </form>
-
-
-    @yield('footer')

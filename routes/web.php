@@ -13,4 +13,4 @@ use App\Models\User;
     routes
 */
 
-Route::resource('/posts',PostController::class);
+Route::resource('posts',PostController::class);

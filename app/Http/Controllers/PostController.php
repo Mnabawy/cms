@@ -12,14 +12,15 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        return 'this id is : ' . $id;
+        $posts = Post::all();
+
+        return view('posts.index', compact('posts'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -36,10 +37,12 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        $post = new Post;
+        // $post = new Post;
 
-        $post->title = $request->title;
-        $post->save();
+        // $post->title = $request->title;
+        // $post->save();
+
+        return redirect('/posts');
     }
 
     /**

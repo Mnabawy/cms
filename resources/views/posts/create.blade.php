@@ -1,8 +1,12 @@
+{{-- <form method="POST" action="/posts"> --}}
 
-    <form method="POST" action="/posts">
-        @csrf
-        <input type="text" name="title" placeholder="Enter Title">
+<h1>Create Post</h1>
+{!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\PostController@store']) !!}
+{!! Form::label('title', 'Course Title') !!}
+{!! Form::text('title', null, ['class' => 'form-controll']) !!}
 
-        <input type="submit" name="submit">
+<div class="form-group">
+    {!! Form::submit('Create Post', ['class' => 'btn btn-primary']) !!}
+</div>
 
-    </form>
+{!! Form::close() !!}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -34,16 +35,20 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
 
-        $post = new Post;
+        // $this->validate($request,[
+        //     'title'=>'required',
+        // ]);
 
+        $post = new Post;
         $post->title = $request->title;
         $post->save();
 
         return redirect('/posts');
     }
+
 
     /**
      * Display the specified resource.

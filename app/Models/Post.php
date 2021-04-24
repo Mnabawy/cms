@@ -8,13 +8,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+
+    public $imagePath = "/images/";
+
     use SoftDeletes;
 
     protected $datas = ['deleted_at'];
 
     protected $fillable = [
         'title',
-        'content'
+        'content',
+        'path'
     ];
 
 
@@ -28,5 +32,14 @@ class Post extends Model
     public function users()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getTitleAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getPathAttribute($value){
+        return $this->imagePath . $value;
     }
 }

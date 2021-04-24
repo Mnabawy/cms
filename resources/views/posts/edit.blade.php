@@ -9,6 +9,7 @@
 {!! Form::submit('Edit Course', ['class' => 'btn btn-info']) !!}
 {!! Form::close() !!}
 
+
 {!! Form::open(['method' => 'DELETE', 'action' => ['App\Http\Controllers\PostController@destroy',$post->id]]) !!}
 {{ csrf_field() }}
 {!! Form::submit('Delete Course', ['class' => 'btn btn-danger']) !!}

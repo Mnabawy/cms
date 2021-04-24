@@ -48,7 +48,13 @@ class User extends Authenticatable
     }
 
     // [1-M] Relationship
-    public function posts(){
+    public function posts()
+    {
         return $this->hasMany(Post::class);
+    }
+
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
     }
 }
